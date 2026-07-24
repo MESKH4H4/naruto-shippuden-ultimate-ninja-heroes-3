@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto Shippuden: UNH 3 HD - Comparison Hub</title>
+    
+    <!-- Slider Component -->
+    <script defer src="https://unpkg.com/img-comparison-slider@7/dist/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/img-comparison-slider@7/dist/styles.css" />
+
+    <style>
+        :root {
+            --shippuden-orange: #ff5500;
+            --chakra-blue: #00aaff;
+            --akatsuki-red: #d62828;
+            --dark-background: #090a0f;
+            --card-background: #11141f;
+            --border-color: #232a3b;
+            --text-light: #f8f9fa;
+            --text-muted: #8d99ae;
+        }
+
+        body { 
+            font-family: 'Arial Black', Gadget, sans-serif; 
+            background-color: var(--dark-background); 
+            color: var(--text-light); 
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Fundo escuro com uma aura concentrada de Chakra azul e vermelho */
+            background-image: radial-gradient(circle at center, #131b2e 0%, #090a0f 100%);
+        }
+
+        .container { 
+            max-width: 1100px; 
+            width: 100%; 
+            text-align: center; 
+        }
+
+        header { 
+            padding: 35px 0; 
+            margin-bottom: 25px; 
+            border-bottom: 4px solid var(--shippuden-orange);
+            box-shadow: 0 8px 30px rgba(255, 85, 0, 0.35);
+            position: relative;
+        }
+
+        header::after {
+            content: '疾風伝'; /* Kanji Shippuden */
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            color: var(--chakra-blue);
+            font-size: 0.85rem;
+            padding: 2px 12px;
+            border: 1px solid var(--akatsuki-red);
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(214, 40, 40, 0.6);
+            letter-spacing: 2px;
+        }
+        
+        h1 { 
+            color: var(--shippuden-orange); 
+            margin: 0; 
+            font-size: 2.3rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-style: italic;
+            text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+        }
+
+        .subtitle {
+            color: var(--chakra-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-top: 8px;
+            text-shadow: 0 0 8px rgba(0, 170, 255, 0.4);
+        }
+        
+        .category-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-cat {
+            background: #151a28;
+            border: 2px solid var(--shippuden-orange);
+            color: #ffffff;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-cat.active {
+            border-color: var(--chakra-blue);
+            background: var(--shippuden-orange);
+            color: #ffffff;
+            box-shadow: 0 0 18px var(--shippuden-orange);
+        }
+
+        .image-selector {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-img {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--shippuden-orange);
+            background: #151a28;
+            color: #ffffff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 50%; /* Estilo esférico imitando uma esfera de Chakra/Rasengan */
+        }
+
+        .btn-img.active {
+            background: var(--akatsuki-red);
+            border-color: var(--chakra-blue);
+            color: #ffffff;
+            transform: scale(1.18) rotate(18deg); /* Efeito de rotação com expansão de energia */
+            box-shadow: 0 0 15px var(--akatsuki-red);
+        }
+
+        .comparison-area {
+            background: var(--card-background);
+            padding: 8px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 0 45px rgba(0,0,0,0.95);
+            border-radius: 6px;
+        }
+
+        img-comparison-slider {
+            width: 100%;
+            --divider-color: var(--chakra-blue);
+            --default-handle-color: var(--chakra-blue);
+        }
+
+        img-comparison-slider img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .label-box {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            font-weight: bold;
+            color: var(--chakra-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+        }
+
+        footer { 
+            margin-top: 60px; 
+            color: var(--text-muted); 
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-family: sans-serif;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Naruto Shippuden: UNH 3 HD</h1>
+            <div class="subtitle">Ultimate Ninja Heroes 3 - Texture Pack Showcase</div>
+        </header>
+
+        <div class="category-menu">
+            <button class="btn-cat active" onclick="setCategory('psp_vs_hd', this)">PSP 4x vs HD Standard</button>
+            <button class="btn-cat" onclick="setCategory('hd_vs_vivid', this)">HD Standard vs Vivid Profile</button>
+        </div>
+
+        <div class="image-selector" id="imgSelector"></div>
+
+        <div class="comparison-area">
+            <div class="label-box">
+                <span id="label-left">Original</span>
+                <span id="label-right">HD</span>
+            </div>
+            
+            <img-comparison-slider id="slider">
+                <img slot="first" id="img-before" src="" />
+                <img slot="second" id="img-after" src="" />
+            </img-comparison-slider>
+        </div>
+
+        <footer>
+            PROJETO DESENVOLVIDO POR MESKH4H4 | NARUTO SHIPPUDEN HD 2026
+        </footer>
+    </div>
+
+    <script>
+        // Altere a URL abaixo para bater com o repositório correto no seu GitHub Pages
+        const baseUrl = "https://meskh4h4.github.io/naruto-shippuden-ultimate-ninja-heroes-3/comparacoes";
+        
+        let currentCategory = 'psp_vs_hd';
+        let currentIndex = 0;
+
+        const configs = {
+            'psp_vs_hd': {
+                leftDir: 'PSP/psp',      // Pasta PSP / psp-0.png até psp-11.png
+                rightDir: 'HD/hd',       // Pasta HD / hd-0.png até hd-11.png
+                labelL: 'PSP Emulador 4x',
+                labelR: 'HD Texture Pack'
+            },
+            'hd_vs_vivid': {
+                leftDir: 'HD/hd',
+                rightDir: 'VIVID/vivid',  // Pasta VIVID / vivid-0.png até vivid-11.png
+                labelL: 'HD Padrão',
+                labelR: 'Vivid Enhanced (Color Profile)'
+            }
+        };
+
+        function initSelector() {
+            const selector = document.getElementById('imgSelector');
+            selector.innerHTML = ''; 
+            // Atualizado para 12 imagens: botões de 0 até 11
+            for (let i = 0; i <= 11; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.className = 'btn-img' + (i === currentIndex ? ' active' : '');
+                btn.onclick = () => setIndex(i, btn);
+                selector.appendChild(btn);
+            }
+        }
+
+        function setCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateImages();
+        }
+
+        function setIndex(idx, btn) {
+            currentIndex = idx;
+            document.querySelectorAll('.btn-img').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateImages();
+        }
+
+        function updateImages() {
+            const config = configs[currentCategory];
+            const imgBefore = document.getElementById('img-before');
+            const imgAfter = document.getElementById('img-after');
+            
+            const cacheBuster = `?t=${new Date().getTime()}`;
+            
+            const newSrcBefore = `${baseUrl}/${config.leftDir}-${currentIndex}.png${cacheBuster}`;
+            const newSrcAfter = `${baseUrl}/${config.rightDir}-${currentIndex}.png${cacheBuster}`;
+
+            imgBefore.src = newSrcBefore;
+            imgAfter.src = newSrcAfter;
+
+            document.getElementById('label-left').innerText = config.labelL;
+            document.getElementById('label-right').innerText = config.labelR;
+        }
+
+        initSelector();
+        updateImages();
+    </script>
+</body>
+</html>
